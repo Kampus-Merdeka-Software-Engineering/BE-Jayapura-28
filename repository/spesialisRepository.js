@@ -1,4 +1,4 @@
-const Spesialis = require("../models/spesialisModels.js");
+const Spesialis = require("../models/spesialisModel");
 
 async function getAllSpesialis() {
   const spesialist = await Spesialis.findAll();
