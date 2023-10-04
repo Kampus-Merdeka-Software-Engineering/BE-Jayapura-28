@@ -1,37 +1,50 @@
-const connection = require("../config/db_connect.js")
+const Spesialis = require("../models/spesialisModels.js");
 
-const table = "spesialis"
-
-function getAllSpesialis() {
-    return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM ${table}`, (err, result) => {
-            if (err) reject(err);
-            resolve(result)
-        })
-    })
+async function getAllSpesialis() {
+  const spesialist = await Spesialis.findAll();
+  return spesialist;
 }
 
-function getSpesialisById(id) {
-    return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM ${table} WHERE id_spesialis = ${id}`, (err, result) => {
-            if (err) reject(err);
-            resolve(result)
-        })
-    })
+async function getSpesialisById(id) {
+  const spesialis = await Spesialis.findOne({
+    where: {
+      sp_id: id,
+    },
+  });
+
+  return spesialis;
 }
 
-function addSpesialis({ jenisSpesialis }) {
-    return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO ${table} (jenisSpesialis) VALUES ('${jenisSpesialis}')`, (err, result) => {
-            if (err) reject(err);
-            resolve(result)
-        })
-    })
+async function addSpesialis(data) {
+  const spesialis = await Spesialis.create(data);
+
+  return spesialis;
 }
 
+async function editSpesialis(id, data) {
+  const spesialis = await Spesialis.update(data, {
+    where: {
+      sp_id: id,
+    },
+  });
+
+  return spesialis;
+}
+
+async function deleteSpesialis(id) {
+  const spesialis = await Spesialis.destroy({
+    where: {
+      sp_id: id,
+    },
+  });
+
+  return spesialis;
+}
 
 module.exports = {
-    getAllSpesialis,
-    getSpesialisById,
-    addSpesialis
-}
+  getAllSpesialis,
+  getSpesialisById,
+  addSpesialis,
+  editSpesialis,
+  deleteSpesialis,
+};

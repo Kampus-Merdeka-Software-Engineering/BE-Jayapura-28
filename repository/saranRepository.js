@@ -1,37 +1,50 @@
-const connection = require("../config/db_connect.js")
+const Saran = require("../models/saranModels.js");
 
-const table = "saran"
-
-function getAllSaran() {
-    return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM ${table}`, (err, result) => {
-            if (err) reject(err);
-            resolve(result)
-        })
-    })
+async function getAllSaran() {
+  const sarans = await Saran.findAll();
+  return sarans;
 }
 
-function getSaranById(id) {
-    return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM ${table} WHERE id_saran = ${id}`, (err, result) => {
-            if (err) reject(err);
-            resolve(result)
-        })
-    })
+async function getSaranById(id) {
+  const saran = await Saran.findOne({
+    where: {
+      saran_id: id,
+    },
+  });
+
+  return saran;
 }
 
-function addSaran({ nama, email, saran }) {
-    return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO ${table} (nama,email,saran) VALUES ('${nama}', '${email}', '${saran}')`, (err, result) => {
-            if (err) reject(err);
-            resolve(result)
-        })
-    })
+async function addSaran(data) {
+  const saran = await Saran.create(data);
+
+  return saran;
 }
 
+async function editSaran(id, data) {
+  const saran = await Saran.update(data, {
+    where: {
+      saran_id: id,
+    },
+  });
+
+  return saran;
+}
+
+async function deleteSaran(id) {
+  const saran = await Saran.destroy({
+    where: {
+      saran_id: id,
+    },
+  });
+
+  return saran;
+}
 
 module.exports = {
-    getAllSaran,
-    getSaranById,
-    addSaran
-}
+  getAllSaran,
+  getSaranById,
+  addSaran,
+  editSaran,
+  deleteSaran,
+};
