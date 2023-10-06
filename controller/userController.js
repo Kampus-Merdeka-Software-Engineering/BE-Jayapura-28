@@ -54,6 +54,7 @@ async function login(req, res) {
           .status(400)
           .json({ message: "Login failed, email or password incorrect" });
   } catch (error) {
+    console.log(error.message);
     res.status(500).json({ error: error.message });
   }
 }

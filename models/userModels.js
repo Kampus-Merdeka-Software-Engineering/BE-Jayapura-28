@@ -4,10 +4,10 @@ const bcrypt = require("bcrypt");
 
 const { DataTypes } = sequelize;
 
-const generateHashPassword = (password) => {
-  const salt = bcrypt.genSaltSync(10, "a");
-  return bcrypt.hashSync(password, salt);
-};
+// const generateHashPassword = (password) => {
+//   const salt = bcrypt.genSaltSync(10, "a");
+//   return bcrypt.hashSync(password, salt);
+// };
 
 const User = db.define(
   "user",
@@ -21,7 +21,7 @@ const User = db.define(
 
     email: {
       type: DataTypes.STRING,
-      unique: true,
+      // unique: true,
       allowNull: false,
     },
 
@@ -38,19 +38,19 @@ const User = db.define(
   {
     freezeTableName: true,
     timestamps: false,
-    hooks: {
-      beforeCreate: (user) => {
-        user.password = generateHashPassword(user.password);
-      },
-      beforeUpdate: async (user) => {
-        user.password = generateHashPassword(user.password);
-      },
-    },
-    instanceMethods: {
-      validPassword: (password) => {
-        return bcrypt.compareSync(password, this.password);
-      },
-    },
+    // hooks: {
+    //   beforeCreate: (user) => {
+    //     user.password = generateHashPassword(user.password);
+    //   },
+    //   beforeUpdate: async (user) => {
+    //     user.password = generateHashPassword(user.password);
+    //   },
+    // },
+    // instanceMethods: {
+    //   validPassword: (password) => {
+    //     return bcrypt.compareSync(password, this.password);
+    //   },
+    // },
   }
 );
 
