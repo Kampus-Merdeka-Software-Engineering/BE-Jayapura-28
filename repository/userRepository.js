@@ -70,4 +70,5 @@ module.exports = {
     addUser,
     deleteUser,
     validateLogin,
+    validPassword,
 };

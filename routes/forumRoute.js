@@ -4,14 +4,14 @@ const forumRouter = express.Router();
 
 const forumController = require("../controller/forumController.js");
 
-forumRouter.get("/forum", verifyToken, forumController.getAllForum);
+forumRouter.get("/forum", forumController.getAllForum);
 
-forumRouter.get("/forum/:id", verifyToken, forumController.getForumById);
+forumRouter.get("/forum/:id", forumController.getForumById);
 
-forumRouter.post("/forum", verifyToken, forumController.addForum);
+forumRouter.post("/forum", forumController.addForum);
 
-forumRouter.patch("/forum/:id", verifyToken, forumController.updateForum);
+forumRouter.patch("/forum/:id", forumController.updateForum);
 
-forumRouter.delete("/forum/:id", verifyToken, forumController.deleteForum);
+forumRouter.delete("/forum/:id", forumController.deleteForum);
 
 module.exports = forumRouter;

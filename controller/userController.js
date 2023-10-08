@@ -1,5 +1,4 @@
 const userRepo = require("../repository/userRepository");
-const jwt = require("jsonwebtoken"); // Import modul jwt
 
 async function getAllUser(req, res) {
     try {
