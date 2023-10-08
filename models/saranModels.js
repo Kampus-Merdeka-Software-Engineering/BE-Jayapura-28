@@ -4,37 +4,36 @@ const sequelize = require("sequelize");
 const { DataTypes } = sequelize;
 
 const Saran = db.define(
-  "saran",
-  {
-    saran_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false,
+    "saran", {
+        saran_id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false,
+        },
+
+        nama: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
+        saran: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
     },
 
-    nama: {
-      type: DataTypes.STRING,
-      defaultValue: "anonym",
-    },
-
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
-    saran: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-  },
-
-  {
-    freezeTableName: true,
-    timestamps: true,
-  }
+    {
+        freezeTableName: true,
+        timestamps: false,
+    }
 );
 
-(async () => await db.sync())();
+(async() => await db.sync({ alter: true }))();
 
 module.exports = Saran;
