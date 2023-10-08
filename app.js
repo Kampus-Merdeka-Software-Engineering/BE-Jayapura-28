@@ -32,8 +32,8 @@ app.use(
         extended: false,
     })
 );
-app.get("/", (req, res) => {
-    res.send(
+app.get("/", (req, res, next) => {
+    res.redirect(
         "https://kampus-merdeka-software-engineering.github.io/FE-Jayapura-28/"
     );
 });
