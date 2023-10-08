@@ -20,7 +20,9 @@ app.use(
     })
 );
 app.get("/", (req, res) => {
-    res.send("Hello World");
+    res.send(
+        "https://kampus-merdeka-software-engineering.github.io/FE-Jayapura-28/"
+    );
 });
 
 app.listen(port, function() {
