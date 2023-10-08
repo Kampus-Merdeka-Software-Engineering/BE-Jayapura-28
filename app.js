@@ -19,7 +19,9 @@ app.use(
         extended: false,
     })
 );
-app.use("/", express.static(path.join(__dirname, "FE-Jayapura-28")));
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
 
 app.listen(port, function() {
     db.authenticate()
