@@ -30,6 +30,6 @@ const Forum = db.define(
     }
 );
 
-(async() => await db.sync({ alter: true }))();
+(async() => await db.sync())();
 
 module.exports = Forum;

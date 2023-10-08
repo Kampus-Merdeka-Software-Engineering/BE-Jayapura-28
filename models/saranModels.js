@@ -34,6 +34,6 @@ const Saran = db.define(
     }
 );
 
-(async() => await db.sync({ alter: true }))();
+(async() => await db.sync())();
 
 module.exports = Saran;
