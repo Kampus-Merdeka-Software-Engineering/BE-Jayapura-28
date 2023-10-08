@@ -4,4 +4,4 @@
   uses: benhamiltonpro/manual-trigger@v1.0.2
   with:
     # Run name that you can use for your workflow if triggers
-    RUN_NAME: # optional, default is run-workflow
+    RUN_NAME: run-workflow
