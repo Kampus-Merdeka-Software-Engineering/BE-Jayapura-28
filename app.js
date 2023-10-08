@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require("cors");
 
 const router = require("./routes/index.js");
+const db = require("./config/db_connect.js");
 
 dotenv.config();
 
@@ -21,5 +22,12 @@ app.use(
 app.use("/", express.static(path.join(__dirname, "FE-Jayapura-28")));
 
 app.listen(port, function() {
+    db.authenticate()
+        .then(function() {
+            console.log("Database terhubung....");
+        })
+        .catch(function(err) {
+            console.log("Database gagal terhubung karena:", err);
+        });
     console.log("server running on", port);
 });
