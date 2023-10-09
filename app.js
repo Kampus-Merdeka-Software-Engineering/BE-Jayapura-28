@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const path = require("path");
 
 const router = require("./routes/index.js");
 const db = require("./config/db_connect.js");
@@ -24,11 +25,12 @@ app.use(
         extended: false,
     })
 );
-app.get("/", (req, res, next) => {
-    res.redirect(
-        "https://kampus-merdeka-software-engineering.github.io/FE-Jayapura-28/"
-    );
-});
+
+app.use("/", express.static(path.join(__dirname, "FE-Jayapura-28-main")));
+
+// app.get("/", (req, res, next) => {
+//     res.send("helloWorld");
+// });
 
 app.listen(port, function() {
     db.authenticate()
