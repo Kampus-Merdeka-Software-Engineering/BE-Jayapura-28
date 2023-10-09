@@ -4,7 +4,7 @@
 async function getArticleById(id) {
     try {
         const response = await fetch(
-            `be-jayapura-28-production-015b.up.railway.app/article/${id}`
+            `https://be-jayapura-28-production-015b.up.railway.app/article/${id}`
         ); // Ganti URL dengan endpoint backend yang sesuai
         if (!response.ok) {
             throw new Error(`Failed to fetch article with id ${id}`);
