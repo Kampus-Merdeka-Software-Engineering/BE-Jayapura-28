@@ -20,13 +20,15 @@ loginForm.addEventListener("submit", async(e) => {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("http://localhost:5000/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-        });
+        const response = await fetch(
+            "be-jayapura-28-production-2caf.up.railway.app/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
+            }
+        );
 
         const data = await response.json();
 
@@ -59,13 +61,15 @@ regisForm.addEventListener("submit", async(e) => {
     const password = document.getElementById("password1").value;
 
     try {
-        const response = await fetch("http://localhost:5000/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password, fullname }),
-        });
+        const response = await fetch(
+            "be-jayapura-28-production-2caf.up.railway.app/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password, fullname }),
+            }
+        );
 
         const data = await response.json();
 

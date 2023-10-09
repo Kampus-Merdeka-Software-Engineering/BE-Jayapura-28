@@ -3,7 +3,9 @@
 // Fungsi untuk mengambil artikel dari backend
 async function getArticleById(id) {
     try {
-        const response = await fetch(`http://localhost:5000/article/${id}`); // Ganti URL dengan endpoint backend yang sesuai
+        const response = await fetch(
+            `be-jayapura-28-production-2caf.up.railway.app/article/${id}`
+        ); // Ganti URL dengan endpoint backend yang sesuai
         if (!response.ok) {
             throw new Error(`Failed to fetch article with id ${id}`);
         }
