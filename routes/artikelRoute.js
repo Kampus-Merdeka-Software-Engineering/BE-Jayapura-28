@@ -2,9 +2,9 @@ const express = require("express");
 const articleRouter = express.Router();
 const cors = require("cors");
 
-app.use(cors());
+articleRouter.use(cors());
 
-app.use((req, res, next) => {
+articleRouter.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");

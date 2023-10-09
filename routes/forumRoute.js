@@ -3,9 +3,9 @@ const verifyToken = require("../middleware/verifyToken");
 const forumRouter = express.Router();
 const cors = require("cors");
 
-app.use(cors());
+forumRouter.use(cors());
 
-app.use((req, res, next) => {
+forumRouter.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");

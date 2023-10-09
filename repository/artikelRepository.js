@@ -1,16 +1,6 @@
 const Article = require("../models/artikelModels.js");
 const cors = require("cors");
 
-app.use(cors());
-
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    res.setHeader("Access-Control-Allow-Private-Network", true);
-    next();
-});
-
 async function getAllArticle() {
     const articles = await Article.findAll();
     return articles;
