@@ -21,7 +21,7 @@ loginForm.addEventListener("submit", async(e) => {
 
     try {
         const response = await fetch(
-            "be-jayapura-28-production-2caf.up.railway.app/login", {
+            "be-jayapura-28-production-015b.up.railway.app/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -62,7 +62,7 @@ regisForm.addEventListener("submit", async(e) => {
 
     try {
         const response = await fetch(
-            "be-jayapura-28-production-2caf.up.railway.app/register", {
+            "be-jayapura-28-production-015b.up.railway.app/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
