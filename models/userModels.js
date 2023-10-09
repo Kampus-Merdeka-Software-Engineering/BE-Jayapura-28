@@ -14,7 +14,7 @@ const User = db.define(
 
         email: {
             type: DataTypes.STRING,
-            // unique: true,
+            unique: true,
             allowNull: false,
         },
 
