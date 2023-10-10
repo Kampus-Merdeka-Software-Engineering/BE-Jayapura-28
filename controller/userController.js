@@ -1,4 +1,5 @@
 const userRepo = require("../repository/userRepository");
+const cors = require("cors");
 
 async function getAllUser(req, res) {
     try {
