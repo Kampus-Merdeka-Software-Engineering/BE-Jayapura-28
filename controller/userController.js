@@ -1,5 +1,6 @@
 const userRepo = require("../repository/userRepository");
 const cors = require("cors");
+const verifyToken = require("../middleware/verifyToken");
 
 async function getAllUser(req, res) {
     try {
