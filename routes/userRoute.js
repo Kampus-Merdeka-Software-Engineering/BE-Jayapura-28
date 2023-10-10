@@ -24,6 +24,6 @@ userRouter.delete("/user/:id", userController.deleteUser);
 
 userRouter.post("/login", userController.login);
 
-userRouter.get("/logout", userController.logout);
+userRouter.post("/logout", userController.logout);
 
 module.exports = userRouter;
