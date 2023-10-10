@@ -85,9 +85,13 @@ async function deleteUser(req, res) {
 }
 
 function logout(req, res) {
-    // Hapus token dari localStorage (Contoh jika Anda menggunakan localStorage)
-    localStorage.removeItem("token");
-    return res.status(200);
+    try {
+        localStorage.removeItem("token");
+        res.status(200).json({ message: "Logout berhasil" });
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json(error);
+    }
 }
 
 module.exports = {
