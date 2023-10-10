@@ -1,4 +1,5 @@
 const express = require("express");
+const verifyToken = require("../middleware/verifyToken");
 const userRouter = express.Router();
 const cors = require("cors");
 
@@ -24,6 +25,6 @@ userRouter.delete("/user/:id", userController.deleteUser);
 
 userRouter.post("/login", userController.login);
 
-userRouter.post("/logout", userController.logout);
+userRouter.post("/logout", verifyToken, userController.logout);
 
 module.exports = userRouter;
