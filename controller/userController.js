@@ -87,14 +87,6 @@ async function deleteUser(req, res) {
 function logout(req, res) {
     // Hapus token dari localStorage (Contoh jika Anda menggunakan localStorage)
     localStorage.removeItem("token");
-    req.session.destroy((err) => {
-        if (err) {
-            console.error("Error destroying session:", err);
-            res.sendStatus(500);
-        } else {
-            res.status(200).json({ message: "Logout successful" }); // Redirect ke halaman log in atau halaman lain yang sesuai
-        }
-    });
 }
 
 module.exports = {
