@@ -1,5 +1,5 @@
 const userRepo = require("../repository/userRepository");
-const cors = require("cors");
+const verifyToken = require("../middleware/verifyToken.js");
 
 async function getAllUser(req, res) {
     try {
@@ -86,7 +86,12 @@ async function deleteUser(req, res) {
 
 function logout(req, res) {
     // Hapus token dari localStorage (Contoh jika Anda menggunakan localStorage)
+    const token = verifyToken.getTokenFromHeader(req);
+    if (!token) {
+        return res.status(401).json({ message: "Logout gagal, token tidak valid" });
+    }
     localStorage.removeItem("token");
+    return res.status(200).json({ message: "Anda berhasil logout" });
 }
 
 module.exports = {
